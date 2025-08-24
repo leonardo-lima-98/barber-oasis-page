@@ -69,19 +69,19 @@ const Contact = () => {
             Entre em Contato
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Agende seu horário ou tire suas dúvidas. Estamos prontos para oferecer 
-            a melhor experiência em barbearia da cidade.
+            Venha nos visitar ou tire suas dúvidas. Atendemos por ordem de chegada 
+            para oferecer a melhor experiência em barbearia da cidade.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-6">
             {contactInfo.map((item, index) => (
               <Card key={index} className="border-0 bg-background hover:shadow-card transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-orange-gradient rounded-full flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -121,111 +121,40 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Booking Form */}
-          <div className="lg:col-span-2">
+          {/* Info Card */}
+          <div className="space-y-6">
             <Card className="border-0 bg-background shadow-card">
               <CardHeader>
                 <CardTitle className="text-2xl font-heading text-primary">
-                  Agende seu Horário
+                  Atendimento por Ordem de Chegada
                 </CardTitle>
                 <p className="text-muted-foreground">
-                  Preencha o formulário abaixo e entraremos em contato para confirmar.
+                  Não trabalhamos com agendamentos. Venha até nossa loja e seja atendido por ordem de chegada.
                 </p>
               </CardHeader>
               
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Nome Completo</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange("name", e.target.value)}
-                        placeholder="Seu nome completo"
-                        required
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Telefone/WhatsApp</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange("phone", e.target.value)}
-                        placeholder="(11) 9 9999-9999"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Serviço Desejado</Label>
-                    <Select onValueChange={(value) => handleInputChange("service", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecione o serviço" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="corte">Corte de Cabelo</SelectItem>
-                        <SelectItem value="barba">Barba & Bigode</SelectItem>
-                        <SelectItem value="sobrancelha">Sobrancelha</SelectItem>
-                        <SelectItem value="combo-premium">Combo Premium</SelectItem>
-                        <SelectItem value="pacote-mensal">Pacote Mensal</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="date">Data Preferida</Label>
-                      <Input
-                        id="date"
-                        type="date"
-                        value={formData.date}
-                        onChange={(e) => handleInputChange("date", e.target.value)}
-                        required
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="time">Horário Preferido</Label>
-                      <Select onValueChange={(value) => handleInputChange("time", value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecione o horário" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="09:00">09:00</SelectItem>
-                          <SelectItem value="10:00">10:00</SelectItem>
-                          <SelectItem value="11:00">11:00</SelectItem>
-                          <SelectItem value="14:00">14:00</SelectItem>
-                          <SelectItem value="15:00">15:00</SelectItem>
-                          <SelectItem value="16:00">16:00</SelectItem>
-                          <SelectItem value="17:00">17:00</SelectItem>
-                          <SelectItem value="18:00">18:00</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Observações (opcional)</Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => handleInputChange("message", e.target.value)}
-                      placeholder="Alguma observação especial sobre o serviço?"
-                      rows={3}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-gold-gradient hover:shadow-gold text-lg py-6"
-                  >
-                    Solicitar Agendamento
-                  </Button>
-                </form>
+              <CardContent className="space-y-4">
+                <div className="p-4 bg-muted rounded-lg">
+                  <h4 className="font-semibold text-primary mb-2">
+                    Como funciona?
+                  </h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Chegue na barbearia durante nosso funcionamento</li>
+                    <li>• Aguarde sua vez na fila</li>
+                    <li>• Seja atendido pelos nossos profissionais</li>
+                    <li>• Tempo médio de espera: 15-30 minutos</li>
+                  </ul>
+                </div>
+                
+                <div className="p-4 bg-accent/10 rounded-lg border border-accent/20">
+                  <h4 className="font-semibold text-accent mb-2">
+                    💡 Dica Especial
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Para menor tempo de espera, recomendamos vir entre terça e quinta-feira, 
+                    de manhã ou meio da tarde.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>

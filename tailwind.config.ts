@@ -70,11 +70,11 @@ export default {
 			},
 			backgroundImage: {
 				'hero-gradient': 'var(--hero-gradient)',
-				'gold-gradient': 'var(--gold-gradient)'
+				'orange-gradient': 'var(--orange-gradient)'
 			},
 			boxShadow: {
 				'card': 'var(--card-shadow)',
-				'gold': 'var(--gold-shadow)'
+				'orange': 'var(--orange-shadow)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)'

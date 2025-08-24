@@ -37,10 +37,10 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
-              className="bg-gold-gradient hover:shadow-gold text-lg px-8 py-6"
+              className="bg-orange-gradient hover:shadow-orange text-lg px-8 py-6"
               onClick={scrollToContact}
             >
-              Agende seu horário
+              Venha nos Visitar
             </Button>
             
             <Button

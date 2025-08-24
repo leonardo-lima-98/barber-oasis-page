@@ -82,17 +82,17 @@ const Pricing = () => {
               key={index} 
               className={`relative transition-all duration-300 hover:shadow-card ${
                 plan.popular 
-                  ? 'border-accent shadow-gold scale-105' 
+                  ? 'border-accent shadow-orange scale-105' 
                   : 'border-border hover:border-accent/50'
               }`}
             >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gold-gradient text-primary px-4 py-1 rounded-full text-sm font-semibold">
-                    Mais Popular
-                  </span>
-                </div>
-              )}
+            {plan.popular && (
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-orange-gradient text-primary px-4 py-1 rounded-full text-sm font-semibold">
+                  Mais Popular
+                </span>
+              </div>
+            )}
 
               <CardHeader className="text-center pb-4">
                 <h3 className="text-2xl font-heading font-bold text-primary mb-2">
@@ -119,7 +119,7 @@ const Pricing = () => {
                 <Button
                   className={`w-full ${
                     plan.popular 
-                      ? 'bg-gold-gradient hover:shadow-gold' 
+                      ? 'bg-orange-gradient hover:shadow-orange' 
                       : 'bg-primary hover:bg-primary/90'
                   }`}
                   onClick={scrollToContact}
