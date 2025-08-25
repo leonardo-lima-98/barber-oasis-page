@@ -65,7 +65,7 @@ const Pricing = () => {
   };
 
   return (
-    <section id="prices" className="py-20 bg-background">
+    <section id="prices" className="py-10 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
@@ -131,7 +131,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12 p-6 bg-muted/50 rounded-lg max-w-2xl mx-auto">
+        {/* <div className="text-center mt-12 p-6 bg-muted/50 rounded-lg max-w-2xl mx-auto">
           <h3 className="text-xl font-semibold text-primary mb-2">
             Dúvidas sobre nossos preços?
           </h3>
@@ -142,7 +142,8 @@ const Pricing = () => {
           <Button variant="outline" onClick={scrollToContact}>
             Falar com Especialista
           </Button>
-        </div>
+        </div> */}
+      
       </div>
     </section>
   );

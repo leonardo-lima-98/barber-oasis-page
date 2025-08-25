@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Scissors, Users, Eye, Package } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Scissors, Users, Eye, Package, SendHorizonal } from "lucide-react";
+
 
 const Services = () => {
   const services = [
@@ -30,7 +32,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-muted/50">
+    <section id="services" className="py-10 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
@@ -71,17 +73,25 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-lg text-muted-foreground mb-6">
-            Não encontrou o que procura? Entre em contato conosco!
+        {/* <div className="p-4 bg-accent/10 rounded-lg border border-accent/20 text-center mt-12">
+          <p className="text-lg text-muted-foreground">
+            Não encontrou o que procura?
           </p>
-          <button
+          <p className="text-lg text-muted-foreground mb-6">
+            Entre em contato conosco!
+          </p>
+          <Button
+            variant="outline"
+            className="w-60"
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="text-accent hover:underline font-medium"
           >
-            Fale conosco →
-          </button>
-        </div>
+            <strong>
+            Fale conosco
+            </strong>
+            <SendHorizonal className="w-4 h-4 mr-2" />
+          </Button>
+        </div> */}
+        
       </div>
     </section>
   );

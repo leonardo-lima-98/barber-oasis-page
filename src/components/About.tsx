@@ -27,7 +27,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -36,20 +36,20 @@ const About = () => {
               Nossa História
             </h2>
             
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              A <span className="font-semibold text-accent">Elite Barber</span> nasceu da paixão pela arte 
+            <p className="text-lg text-muted-foreground mb-3 leading-relaxed">
+              A <span className="font-semibold text-accent">Estilo Boss</span> nasceu da paixão pela arte 
               da barbearia tradicional, combinada com técnicas modernas e um atendimento diferenciado. 
               Há mais de 5 anos, transformamos não apenas o visual dos nossos clientes, mas também 
               sua autoestima e confiança.
             </p>
 
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Nosso espaço foi cuidadosamente projetado para oferecer uma experiência única, 
               onde cada detalhe reflete nosso compromisso com a qualidade e o bem-estar. 
               Aqui, tradição e modernidade se encontram para criar o visual perfeito para você.
             </p>
 
-            {/* Mission */}
+            {/* Mission
             <div className="bg-muted/50 p-6 rounded-lg mb-8">
               <h3 className="text-xl font-semibold text-primary mb-3">Nossa Missão</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -57,9 +57,9 @@ const About = () => {
                 proporcionando uma experiência única que combina técnica, qualidade e atendimento 
                 personalizado em um ambiente acolhedor e sofisticado.
               </p>
-            </div>
+            </div> */}
 
-            {/* Stats */}
+            {/* Stats
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-accent mb-1">5+</div>
@@ -73,7 +73,7 @@ const About = () => {
                 <div className="text-3xl font-bold text-accent mb-1">98%</div>
                 <div className="text-sm text-muted-foreground">Taxa de satisfação</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Image */}
@@ -88,7 +88,7 @@ const About = () => {
         </div>
 
         {/* Values */}
-        <div className="mt-20">
+        <div className="mt-10">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-heading font-bold text-primary mb-4">
               Nossos Valores

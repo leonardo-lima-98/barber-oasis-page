@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <header className="absolute top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -23,7 +23,7 @@ const Header = () => {
               <Scissors className="w-6 h-6 text-primary" />
             </div>
             <span className="text-2xl font-heading font-bold text-primary">
-              Elite Barber
+              Estilo Boss
             </span>
           </div>
 
@@ -54,21 +54,24 @@ const Header = () => {
               Depoimentos
             </button>
             <button
+              onClick={() => scrollToSection("about")}
+              className="text-foreground hover:text-accent transition-colors"
+            >
+              Sobre Nós
+            </button>
+            <button
+              onClick={() => scrollToSection("gallery")}
+              className="text-foreground hover:text-accent transition-colors"
+            >
+              Galeria
+            </button>
+            <button
               onClick={() => scrollToSection("contact")}
               className="text-foreground hover:text-accent transition-colors"
             >
               Contato
             </button>
           </nav>
-
-          {/* CTA Button - Desktop */}
-          <Button
-            variant="default"
-            className="hidden md:flex bg-gold-gradient hover:shadow-gold"
-            onClick={() => scrollToSection("contact")}
-          >
-            Agendar Horário
-          </Button>
 
           {/* Mobile Menu Button */}
           <button
@@ -108,18 +111,23 @@ const Header = () => {
                 Depoimentos
               </button>
               <button
+                onClick={() => scrollToSection("about")}
+                className="text-left text-foreground hover:text-accent transition-colors"
+              >
+                Sobre Nós
+              </button>
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="text-left text-foreground hover:text-accent transition-colors"
+              >
+                Galeria
+              </button>
+              <button
                 onClick={() => scrollToSection("contact")}
                 className="text-left text-foreground hover:text-accent transition-colors"
               >
                 Contato
               </button>
-              <Button
-                variant="default"
-                className="w-full bg-gold-gradient hover:shadow-gold"
-                onClick={() => scrollToSection("contact")}
-              >
-                Agendar Horário
-              </Button>
             </div>
           </nav>
         )}

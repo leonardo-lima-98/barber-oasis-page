@@ -1,33 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import { usePlaceInfo } from "@/hooks/usePlaceInfo";
+import { usePlaceTestimonials } from "@/hooks/usePlaceTestimonials";
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      name: "Carlos Mendes",
-      role: "Executivo",
-      content: "Simplesmente a melhor barbearia da cidade! O atendimento é impecável e o resultado sempre supera minhas expectativas. Já sou cliente há 2 anos e nunca pensei em trocar.",
-      rating: 5,
-      image: "👨‍💼"
-    },
-    {
-      name: "Rafael Santos",
-      role: "Empresário",
-      content: "Profissionais extremamente qualificados e um ambiente acolhedor. O cuidado com os detalhes é impressionante. Recomendo para todos que buscam qualidade premium.",
-      rating: 5,
-      image: "👨‍💻"
-    },
-    {
-      name: "João Pedro",
-      role: "Advogado",
-      content: "A Elite Barber transformou completamente meu visual. Desde o primeiro atendimento me senti em casa. A pontualidade e profissionalismo são exemplares.",
-      rating: 5,
-      image: "👨‍⚖️"
-    }
-  ];
-
+  const { reviews, loadingReviews, errorReviews  } = usePlaceTestimonials();
+  const { placeInfo, loadingPlaceInfo, errorPlaceInfo } = usePlaceInfo();
+  
   return (
-    <section id="testimonials" className="py-20 bg-muted/50">
+    <section id="testimonials" className="py-10 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
@@ -39,76 +20,98 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-0 bg-background hover:shadow-card transition-all duration-300">
-              <CardContent className="p-6">
-                {/* Rating Stars */}
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-accent fill-current" />
-                  ))}
-                </div>
-
-                {/* Content */}
-                <p className="text-muted-foreground mb-6 leading-relaxed italic">
-                  "{testimonial.content}"
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center text-xl mr-4">
-                    {testimonial.image}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary">
-                      {testimonial.name}
-                    </h4>
+        {/* Testimonials Grid */}
+        {loadingReviews ? (
+          <p>Carregando Indicadores...</p>
+        ) : errorReviews ? (
+          <p className="text-red-500">Erro: {errorReviews.message}</p>
+        ) : (
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {reviews.map((reviews, index) => (
+              <Card
+                key={index}
+                className="border-0 bg-background hover:shadow-card transition-all duration-300 h-80 flex flex-col"
+              >
+                <CardContent className="p-6 flex flex-col flex-grow">
+                  {/* Rating Stars */}
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="flex-col-2 flex">
+                      {[...Array(reviews.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-accent fill-current" />
+                      ))}
+                    </div>
                     <p className="text-sm text-muted-foreground">
-                      {testimonial.role}
+                      {reviews.time}
                     </p>
                   </div>
+
+                  {/* Content */}
+                  <p className="text-muted-foreground mb-6 leading-relaxed italic line-clamp-6">
+                    "{reviews.content}"
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center mt-auto">
+                    <div className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center text-xl mr-4 overflow-hidden">
+                      <img src={reviews.image} alt={reviews.name} className="w-full h-full object-cover"/>
+                    </div>
+                    <div>
+                      <a href={reviews.name_url} target="_blank" rel="noopener noreferrer">
+                        <h4 className="font-semibold text-primary">{reviews.name}</h4>
+                      </a>
+                      <p className="text-sm text-muted-foreground">{reviews.role}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+
+            {/* Card de + Mais Avaliações */}
+            <Card className="border-2 border-dashed border-accent bg-background hover:shadow-card transition-all duration-300 h-80 flex items-center justify-center">
+              <a
+                href="https://maps.google.com/?cid=13191679926128011682" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center gap-2"
+              >
+                <div className="w-16 h-16 rounded-full border-2 border-accent flex items-center justify-center text-accent text-3xl font-bold">
+                  +
                 </div>
-              </CardContent>
+                <span className="text-primary font-semibold">Mais avaliações</span>
+              </a>
             </Card>
-          ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-12 max-w-2xl mx-auto">
-          <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-            Quer fazer parte desta experiência?
-          </h3>
-          <p className="text-muted-foreground mb-6">
-            Agende seu horário e descubra por que somos a escolha de centenas de clientes satisfeitos.
-          </p>
-          <button
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="bg-gold-gradient text-primary px-8 py-3 rounded-lg font-semibold hover:shadow-gold transition-all duration-300"
-          >
-            Agendar Agora
-          </button>
-        </div>
-
+          </div>
+        )}
+        
         {/* Trust Indicators */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent mb-1">5.0</div>
-            <div className="text-sm text-muted-foreground">Avaliação média</div>
+        {loadingPlaceInfo ? (
+          <p>Carregando Indicadores...</p>
+        ) : errorPlaceInfo ? (
+          <p className="text-red-500">Erro: {errorPlaceInfo.message}</p>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-accent mb-1">
+                {placeInfo.rating}
+              </div>
+              <div className="text-sm text-muted-foreground">Avaliação média</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-accent mb-1">
+                {placeInfo.total}
+              </div>
+              <div className="text-sm text-muted-foreground">Total de avaliações</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-accent mb-1">98%</div>
+              <div className="text-sm text-muted-foreground">Recomendam</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-accent mb-1">5+</div>
+              <div className="text-sm text-muted-foreground">Anos no mercado</div>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent mb-1">1000+</div>
-            <div className="text-sm text-muted-foreground">Clientes atendidos</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent mb-1">98%</div>
-            <div className="text-sm text-muted-foreground">Recomendam</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent mb-1">5+</div>
-            <div className="text-sm text-muted-foreground">Anos no mercado</div>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );

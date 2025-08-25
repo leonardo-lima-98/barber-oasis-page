@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-barber.jpg";
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
+  const scrollToMap = () => {
+    const element = document.getElementById("map");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -38,7 +38,7 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-orange-gradient hover:shadow-orange text-lg px-8 py-6"
-              onClick={scrollToContact}
+              onClick={scrollToMap}
             >
               Venha nos Visitar
             </Button>
@@ -46,14 +46,14 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
+              className="border-white text-primary hover:bg-white hover:text-primary text-lg px-8 py-6"
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
             >
               Nossos Serviços
             </Button>
           </div>
 
-          {/* Stats */}
+          {/* Stats
           <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/20">
             <div className="text-center">
               <div className="text-3xl font-bold text-accent">5+</div>
@@ -67,7 +67,7 @@ const Hero = () => {
               <div className="text-3xl font-bold text-accent">100%</div>
               <div className="text-white/80">Dedicação</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
