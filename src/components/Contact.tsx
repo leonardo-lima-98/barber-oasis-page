@@ -5,6 +5,8 @@ import { usePlaceInfo } from "@/hooks/usePlaceInfo";
 
 const Contact = () => {
   const { placeInfo, loadingPlaceInfo, errorPlaceInfo } = usePlaceInfo();
+  const api_key = import.meta.env.VITE_api_key
+  const map_url = `https://www.google.com/maps/embed/v1/place?key=${api_key}&q=Estilo+Boss+Barbearia,Cachoeira+do+Bom+Jesus,Florianópolis,SC&zoom=15`
 
   const contactInfo = [
     {
@@ -132,7 +134,7 @@ const Contact = () => {
             <CardContent className="p-0">
               <div className="h-80 bg-muted flex items-center justify-center">
                 <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBW6iL7oU9puJavBHzH-wPzSt1bm-ogyS8&q=Estilo+Boss+Barbearia,Cachoeira+do+Bom+Jesus,Florianópolis,SC&zoom=15"
+                src={map_url}
                 width="100%" 
                 height="100%" 
                 loading="lazy">
