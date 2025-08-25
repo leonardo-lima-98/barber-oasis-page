@@ -27,7 +27,7 @@ const Testimonials = () => {
           <p className="text-red-500">Erro: {errorReviews.message}</p>
         ) : (
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {reviews.map((reviews, index) => (
+            {reviews.map((review, index) => (
               <Card
                 key={index}
                 className="border-0 bg-background hover:shadow-card transition-all duration-300 h-80 flex flex-col"
@@ -36,30 +36,30 @@ const Testimonials = () => {
                   {/* Rating Stars */}
                   <div className="flex justify-between items-center mb-4">
                     <div className="flex-col-2 flex">
-                      {[...Array(reviews.rating)].map((_, i) => (
+                      {[...Array(review.rating)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 text-accent fill-current" />
                       ))}
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {reviews.time}
+                      {review.time}
                     </p>
                   </div>
 
                   {/* Content */}
                   <p className="text-muted-foreground mb-6 leading-relaxed italic line-clamp-6">
-                    "{reviews.content}"
+                    "{review.content}"
                   </p>
 
                   {/* Author */}
                   <div className="flex items-center mt-auto">
                     <div className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center text-xl mr-4 overflow-hidden">
-                      <img src={reviews.image} alt={reviews.name} className="w-full h-full object-cover"/>
+                      <img src={review.image} alt={review.name} className="w-full h-full object-cover"/>
                     </div>
                     <div>
-                      <a href={reviews.name_url} target="_blank" rel="noopener noreferrer">
-                        <h4 className="font-semibold text-primary">{reviews.name}</h4>
+                      <a href={review.name_url} target="_blank" rel="noopener noreferrer">
+                        <h4 className="font-semibold text-primary">{review.name}</h4>
                       </a>
-                      <p className="text-sm text-muted-foreground">{reviews.role}</p>
+                      <p className="text-sm text-muted-foreground">{review.role}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -92,13 +92,13 @@ const Testimonials = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border">
             <div className="text-center">
               <div className="text-2xl font-bold text-accent mb-1">
-                {placeInfo.rating}
+                {placeInfo ? placeInfo.rating: " - "}
               </div>
               <div className="text-sm text-muted-foreground">Avaliação média</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-accent mb-1">
-                {placeInfo.total}
+                {placeInfo ? placeInfo.total: " - "}
               </div>
               <div className="text-sm text-muted-foreground">Total de avaliações</div>
             </div>
